@@ -36,7 +36,7 @@ function createList() {
 
         messageSpan = document.createElement("p");
         messageSpan.classList.add("message");
-        messageSpan.innerHTML = notes[i].content;
+        messageSpan.innerHTML = notes[i].content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
 
         entryDiv.appendChild(messageSpan);
         logDiv.appendChild(entryDiv);
