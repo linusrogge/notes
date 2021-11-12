@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'ibm plex sans' !important;
+    font-weight: 400;
+}
+
+main.content {
+    padding: 32px;
+
+    @media screen and (max-width: 768px) {
+        padding: 16px;
+    }
+}
+
+.layout {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__col {
+        &.form {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 25%;
+            margin-right: 64px;
+            position: fixed;
+            top: 32px;
+            left: 32px;
+
+            textarea {
+                width: 100%;
+                height: 200px;
+                border: none;
+                border-top: 2px solid rgba(#000, 0.1);
+                padding-top: 8px;
+                padding-bottom: 8px;
+                border-bottom: 2px solid #000;
+                font-size: 18px;
+                outline: none;
+                margin-bottom: 16px;
+            }
+
+            button {
+                display: inline-block;
+                border: none;
+                font-size: 18px;
+                padding: 8px 16px 7px;
+                background: #000;
+                color: #fff;
+                border-radius: 50px;
+                cursor: pointer;
+            }
+        }
+
+        &.log {
+            width: 50%;
+            margin-left: calc(25% + (2 * 32px));
+
+            .entry {
+                &:not(:last-child) {
+                    border-bottom: 2px solid rgba(#000, 0.1);
+                }
+
+                padding-bottom: 16px;
+                margin-bottom: 16px;
+
+                .message {
+                    font-size: 18px;
+                }
+
+                .meta {
+                    margin-top: 16px;
+                    display: flex;
+                    align-items: center;
+
+                    .time {
+                        opacity: 0.3;
+                        font-size: 16px;
+                        display: inline-block;
+                        margin-left: 0;
+                        margin-right: auto;
+                    }
+
+                    .btn {
+                        padding: 8px 16px 7px;
+                        border-radius: 50px;
+                        border: 1px solid rgba(#000, 0.025);
+                        font-size: 16px;
+                        background: rgba(#000, 0.05);
+                        cursor: pointer;
+                        
+                        &-edit {
+                            margin-right: 8px;
+                        }
+                        
+                        &-delete {
+                            border: 1px solid rgba(#000, 0.1);
+                            background: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            &.form {
+                position: relative;
+                top: unset;
+                left: unset;
+                margin-bottom: 32px;
+                margin-right: 0;
+                width: 100%;
+            }
+
+            &.log, &.form {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+}
